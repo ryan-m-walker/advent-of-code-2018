@@ -1,4 +1,3 @@
-import re
 import numpy as np
 
 
@@ -19,18 +18,6 @@ class FabricSquare:
                 coordinates.append((row, cell))
 
         self.coordinates = coordinates
-
-
-def render_fabric(fabric):
-    final_render = ''
-    for row in fabric:
-        for cell in row:
-            if cell == '':
-                final_render += ' '
-            else:
-                final_render += cell
-        final_render += '\n'
-    return final_render
 
 
 def parse_input(input_data):

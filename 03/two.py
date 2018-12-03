@@ -1,4 +1,3 @@
-import re
 import numpy as np
 
 
@@ -19,18 +18,6 @@ class FabricSquare:
                 coordinates.append((row, cell))
 
         self.coordinates = coordinates
-
-
-def render_fabric(fabric):
-    final_render = ''
-    for row in fabric:
-        for cell in row:
-            if cell == '':
-                final_render += ' '
-            else:
-                final_render += cell
-        final_render += '\n'
-    return final_render
 
 
 def parse_input(input_data):
@@ -61,8 +48,6 @@ def main(input_data):
             else:
                 main_fabric[row][cell] = '#'
 
-    print(main_fabric)
-
     for fabric_claim in parsed_input:
         no_collisions = True
         for coordinate in fabric_claim.coordinates:
@@ -74,18 +59,6 @@ def main(input_data):
             found_id.append(fabric_claim.claim_id)
 
     return found_id
-
-    # for fabric_claim in parsed_input:
-    #     no_collisions = True
-    #     for other in parsed_input:
-    #         if fabric_claim == other:
-    #             continue
-    #         for coordinate in fabric_claim.coordinates:
-    #             if coordinate in other.coordinates:
-    #                 no_collisions = False
-
-    #     if no_collisions:
-    #         found_id.append(fabric_claim.claim_id)
 
 
 if __name__ == "__main__":
