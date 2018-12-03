@@ -1,5 +1,3 @@
-import hashlib
-
 
 def calc(input):
     total_twos = []
@@ -44,6 +42,8 @@ def calc(input):
 
 
 if __name__ == "__main__":
-    with open("test_data.txt") as file:
-        output = calc(file.read().split('\n'))
+    with open("input.txt") as file:
+        # read the input, split by lines and use it as argument to main function
+        input_data = file.read().split('\n')
+        output = calc(input_data)
         print(output)
