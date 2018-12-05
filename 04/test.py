@@ -1,4 +1,5 @@
-# confirm that no guard goes to sleep in hour 23
+# a quick script written to confirm that no
+# guards went to sleep during the 23 hour
 
 
 WAKES_UP = 'wakes up'
