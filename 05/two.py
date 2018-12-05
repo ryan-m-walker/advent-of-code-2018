@@ -1,4 +1,5 @@
 from string import ascii_lowercase, ascii_uppercase
+import operator
 
 
 def are_same_character(a, b):
@@ -48,9 +49,33 @@ def calc(input_data):
     return len(input_data)
 
 
+def main(input_data):
+    # initialize a list to hold the lengths of each reaction after character has been removed
+    lengths = []
+
+    # since we will be removing a letter in both upper case and lower case
+    # we can just loop over a list of lowercase letters
+    for letter in ascii_lowercase:
+        # create a list of the input with the current letter filtered out
+        # convert the letter to lowercase in filtering so we get both cases
+        filtered_input = list(
+            filter(lambda x: x.lower() != letter, input_data))
+        # run the calc function on the filtered list and
+        # append its result to the lengths list
+        lengths.append(calc(filtered_input))
+
+    # find the smallest value in the final lengths list
+    # we can use the index of that value to determine
+    # which letter it is by using that index on the
+    # ascii_lowercase string
+    index, value = min(enumerate(lengths), key=operator.itemgetter(1))
+
+    return (ascii_lowercase[index], value)
+
+
 if __name__ == '__main__':
     with open('input.txt') as file:
         # read the input and get a list of characters
         input_data = list(file.read().strip())
-        output = calc(input_data)
-        print(output)
+        char, value = main(input_data)
+        print(value)
