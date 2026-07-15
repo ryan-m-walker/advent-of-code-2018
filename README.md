@@ -2,4 +2,8 @@
 
 https://adventofcode.com/2018
 
-Solutions are being written in Rust.
+Languages used so far:
+
+- Python (days 01–05)
+- JavaScript (day 01)
+- Rust (day 01)
